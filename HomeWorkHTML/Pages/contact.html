@@ -1,18 +1,38 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <title>Контакти</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакти - Hubin Pavlo</title>
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-  <h1>Контактна інформація</h1>
-  <p>Телефон: +380 93 06 07 939</p>
-  <p>Email: gubinpavel91@email.com</p>
-   <a href="https://www.linkedin.com/in/pavlohubin/">My LinkedIn</a>
 
-  <nav>
-    <a href="../index.html">Головна</a> |
-    <a href="gallery.html">Галерея</a>
-  </nav>
+<div class="container">
+    <h1>Контактна інформація</h1>
+
+    <p id="main-paragraf">Якщо у вас є питання — зв’яжіться зі мною!</p>
+
+    <p>Email: pavelgubin91@gmail.com</p>
+    <p>Телефон: +380 (93) 123-45-67</p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/pavlohubin/">Мій профіль</a></p>
+<button id="theme-toggle" title="Змінити тему">🌗Змінити тему</button>
+    <nav>
+        <a href="../index.html">На головну</a> |
+        <a href="gallery.html">Галерея</a>
+    </nav>
+</div>
+<script>
+    const toggleBtn = document.getElementById('theme-toggle');
+    toggleBtn.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+    });
+
+    // Встановлюємо тему при завантаженні
+    if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-mode');
+    }
+</script>
 </body>
 </html>

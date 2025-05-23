@@ -1,56 +1,80 @@
-<!DOCTYPE html>
-<html lang="en-US" lang="uk"> 
+<!DOCTYPE html> 
+<html lang="uk"> 
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     
-    <head>
-        <title>Створення HTML сторінки Hubin Pavlo</title>
+    <title>Створення HTML сторінки Hubin Pavlo</title>
 
-    </head>
-<body>
 
-   
-    <div>
-    <h1 style="background-color:powderblue; text-align: center;"
-    >Моя перша домашка по HTML 
-    </h1>
-    <p style="background-color:tomato;text-align:center;">Майкл Джозеф Джексон - американський співак, автор пісень, музичний продюсер, 
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body id="1">
+  <div id="greeting-banner" class="fade-in">
+  👋 Вітаємо на сайті Hubin Pavlo!
+</div>
+
+<div class="container">
+    <h1> Моя перша домашка по HTML</h1>
+
+    <p id="main-paragraf">Майкл Джозеф Джексон - американський співак, автор пісень, музичний продюсер, 
         аранжувальник, танцюрист, хореограф, актор, сценарист, філантроп
          і підприємець. Володар 15 премій «Греммі» та сотень інших премій.
           Майкл Джексон - один із найуспішніших виконавців в історії поп-музики.</p>
-    <form action="/action_page.php">
-  <label for="fname">Ім'я:</label><br>
-  <input type="text" id="fname" name="fname" value="Іван"><br>
-  <label for="lname">Прізвище:</label><br>
-  <input type="text" id="lname" name="lname" value="Іванов"><br><br>
-  <input type="submit" value="Увійти">
-</form>
-    <a href="https://www.linkedin.com/in/pavlohubin/">My LinkedIn</a>
-     <img src="Photo/1.jpg" alt="Це я" width="300" height="400">
-     <img src="Photo/2.jpg" alt="Це я" width="300" height="400">
-    <p title="Я червоний параграф"style="color:red;">Це червоний параграф.</p>
-    <p title="Я параграф!">Це ще один параграф</p>
-<iframe src="https://lms.ithillel.ua/" style="height:400px;width:800px;" title="Iframe Example"></iframe>
-   <ol type="1">
-  <li>Coffee</li>
-  <li>Tea</li>
-  <li>Milk</li>
-</ol>
-<audio controls autoplay >
-  <source src="audio/Michael.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
-</audio>
-</div>
-  <nav>
-    <a href="Pages/contact.html">Контакти</a> |
-    <a href="Pages/gallery.html">Галерея</a>
-  </nav>
 
+    <form action="/action_page.php">
+        <label for="fname">Ім'я:</label><br>
+        <input type="text" id="fname" name="fname" value="Іван"><br>
+        <label for="lname">Прізвище:</label><br>
+        <input type="text" id="lname" name="lname" value="Іванов"><br><br>
+        <input type="submit" value="Увійти"class="glow-image"> 
+    </form>
+
+    <a href="https://www.linkedin.com/in/pavlohubin/">My LinkedIn</a>
+
+    <div class="photo-gallery">
+        <img src="Photo/1.jpg" alt="Це я" width="300" height="400" class="glow-image">
+        <img src="Photo/2.jpg" alt="Це я" width="300" height="400" class="glow-image">
+    </div>
+
+    <p title="Я червоний параграф" class="red-paragraph">Це червоний параграф.</p>
+    <p title="Я параграф!">Це ще один параграф</p>
+
+    <iframe src="https://lms.ithillel.ua/" title="Hillel LMS" class="glow-image"></iframe>
+
+    <ol>
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+    </ol>
+
+    <audio controls autoplay>
+        <source src="audio/Michael.mp3" type="audio/mpeg" class="glow-image">
+        Your browser does not support the audio element.
+    </audio>
+<button id="theme-toggle" title="Змінити тему">🌗Змінити тему</button>
+
+    <nav>
+        <a href="Pages/contact.html">Контакти</a> |
+        <a href="Pages/gallery.html">Галерея</a>
+    </nav>
+</div>
+<script>
+    const toggleBtn = document.getElementById('theme-toggle');
+    toggleBtn.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+    });
+
+    // Встановлюємо тему при завантаженні
+    if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-mode');
+    }
+</script>
+<script>
+  window.addEventListener('load', () => {
+    alert('👋 Вітаю на сторінці Hubin Pavlo! Гарного перегляду 😄');
+  });
+</script>
 
 </body>
-
-
-
-
-
-
 </html>

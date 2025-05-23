@@ -1,18 +1,39 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <title>Галерея</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Галерея - Hubin Pavlo</title>
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-  <h1>Галерея</h1>
-  <img src="Photo/1.jpg" alt="Фото 1"width="300" height="400">
-  <img src="Photo/2.jpg" alt="Фото 2"width="300" height="400"> 
-  <img src="Photo/3.jpg" alt="Фото 3"width="300" height="400">
-  <img src="Photo/4.jpg" alt="Фото 4"width="300" height="400">
-  <nav>
-    <a href="../index.html">Головна</a> |
-    <a href="contact.html">Контакти</a>
-  </nav>
+
+<div class="container">
+    <h1>Моя фотогалерея</h1>
+
+    <div class="gallery-grid">
+        <img src="../Photo/1.jpg" alt="Фото 1" class="glow-image">
+        <img src="../Photo/2.jpg" alt="Фото 2"class="glow-image">
+        <img src="../Photo/3.jpg" alt="Фото 3"class="glow-image">
+        <img src="../Photo/4.jpg" alt="Фото 4"class="glow-image">
+    </div>
+<button id="theme-toggle" title="Змінити тему">🌗Змінити тему</button>
+    <nav>
+        <a href="../index.html">На головну</a> |
+        <a href="contact.html">Контакти</a>
+    </nav>
+</div>
+<script>
+    const toggleBtn = document.getElementById('theme-toggle');
+    toggleBtn.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+    });
+
+    // Встановлюємо тему при завантаженні
+    if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-mode');
+    }
+</script>
 </body>
 </html>
