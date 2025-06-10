@@ -1,0 +1,51 @@
+CREATE TABLE car_brands (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(100) NOT NULL
+);
+CREATE TABLE car_models (
+    id SERIAL PRIMARY KEY,
+    carBrandId INT REFERENCES car_brands(id),
+    title VARCHAR(100) NOT NULL
+);
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    firstName VARCHAR(100) NOT NULL,
+    lastName VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(100) NOT NULL
+);
+CREATE TABLE cars (
+    id SERIAL PRIMARY KEY,
+    userId INT REFERENCES users(id),
+    carBrandId INT REFERENCES car_brands(id),
+    carModelId INT REFERENCES car_models(id),
+    mileage INT NOT NULL,
+    initialMilleage INT NOT NULL
+);
+INSERT INTO car_brands (title) VALUES
+('Toyota'),
+('BMW'),
+('Audi'),
+('Honda'),
+('Ford');
+INSERT INTO car_models (carBrandId, title) VALUES
+(1, 'Corolla'),
+(1, 'Camry'),
+(2, 'X5'),
+(2, '3 Series'),
+(3, 'A4'),
+(3, 'Q7'),
+(4, 'Civic'),
+(4, 'Accord'),
+(5, 'Focus'),
+(5, 'Mustang');
+INSERT INTO users (firstName, lastName, email, password) VALUES
+('Іван', 'Петренко', 'ivan@example.com', 'password1'),
+('Олена', 'Іванова', 'olena@example.com', 'password2'),
+('Сергій', 'Коваленко', 'sergiy@example.com', 'password3');
+INSERT INTO cars (userId, carBrandId, carModelId, mileage, initialMilleage) VALUES
+(1, 1, 1, 150000, 10000),
+(1, 2, 3, 90000, 5000),
+(2, 3, 5, 120000, 20000),
+(3, 4, 7, 80000, 10000),
+(3, 5, 10, 30000, 0);
