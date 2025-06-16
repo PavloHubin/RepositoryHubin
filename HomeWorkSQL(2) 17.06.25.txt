@@ -1,0 +1,28 @@
+SELECT * FROM user_profiles
+WHERE name LIKE '%am%';
+
+SELECT max(liters) 
+FROM expenses
+JOIN car_brands ON expenses.id = car_brands.id
+WHERE car_brands.title = 'Audi';
+
+SELECT 
+car_brands.id,
+COUNT(car_models.id)
+FROM car_brands 
+JOIN car_models  ON car_brands.id = car_models.carBrandId
+WHERE car_brands.title IN ('AUDI', 'BMW')
+GROUP BY car_brands.id;
+
+SELECT 
+car_models.title, 
+car_brands.title,
+count(DISTINCT cars.userId)
+FROM cars 
+JOIN car_models  ON cars.carModelId = car_models.id
+JOIN car_brands  ON car_models.carBrandId = car_brands.id
+GROUP BY car_models.title, car_brands.title;
+
+SELECT  name
+FROM user_profiles
+JOIN cars  ON user_profiles.id = cars.userId;
